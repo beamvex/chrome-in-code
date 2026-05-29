@@ -1,0 +1,50 @@
+{
+  "name": "chrome-in-code",
+  "displayName": "Chrome in Code",
+  "description": "Run a real Chrome browser inside a VS Code editor tab",
+  "version": "0.1.0",
+  "publisher": "chrome-in-code",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": ["Other"],
+  "keywords": ["browser", "chrome", "devtools", "debug"],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "chrome-in-code.openBrowser",
+        "title": "Open Browser",
+        "category": "Chrome"
+      },
+      {
+        "command": "chrome-in-code.openBrowserAt",
+        "title": "Open Browser at URL",
+        "category": "Chrome"
+      }
+    ],
+    "configuration": {
+      "title": "Chrome in Code",
+      "properties": {
+        "chrome-in-code.startUrl": {
+          "type": "string",
+          "default": "https://www.google.com",
+          "description": "Default URL to open when launching the browser tab."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.3.0"
+  }
+}
